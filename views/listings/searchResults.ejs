@@ -1,0 +1,57 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+
+<div class="container my-5">
+  <h1 class="mb-4">Search Results</h1>
+
+  <div class="mb-4">
+    <h5>Filters applied:</h5>
+    <% if (Object.keys(filters).length === 0) { %>
+    <p class="text-muted">No filters applied.</p>
+    <% } else { %>
+    <div>
+      <% for (const key in filters) { %>
+      <span class="badge bg-primary me-2 mb-2">
+        <%= key %>: <%= filters[key] %>
+      </span>
+      <% } %>
+    </div>
+    <% } %>
+  </div>
+
+  <% if (listings.length === 0) { %>
+  <div class="alert alert-danger" role="alert">
+    No listings found matching your criteria.
+  </div>
+  <% } else { %>
+  <div class="table-responsive">
+    <table class="table table-striped align-middle">
+      <thead class="table-dark">
+        <tr>
+          <th>Title</th>
+          <th>Location</th>
+          <th>Price (₹)</th>
+          <th>Description</th>
+          <th>Review</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% listings.forEach(listing => { %>
+        <tr>
+          <td>
+            <a href="/listings/<%= listing._id %>" class="text-decoration-none">
+              <%= listing.title %>
+            </a>
+          </td>
+          <td><%= listing.location %></td>
+          <td>&#8377;<%= listing.price %></td>
+          <td><%= listing.description %></td>
+          <td><%= review.comment %></td>
+          <td><%= review.rating %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+  <% } %>
+</div>
