@@ -2,13 +2,12 @@
   .search-btn {
     background-color: #fe424d;
     color: white;
-     border-radius: 25px;
-     padding: 0 1rem 0 1rem;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
   }
   .search-btn:hover {
     background-color: #fe424d;
     color: white;
-   
   }
 
   .search-btn i {
@@ -16,11 +15,10 @@
     margin-right: 0.3rem;
   }
 
-.search-inp {
-  border-radius: 25px;
-  padding: 0.5rem 3rem 0.5rem 3rem;
-}
-
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+  }
 </style>
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
@@ -40,22 +38,26 @@
         <a class="nav-link" href="/listings">Explore</a>
       </div>
       <% if (typeof filters === 'undefined') { filters = {}; } %>
-     <div class="navbar-nav ms-auto">
-  <form class="d-flex" role="search" action="/listings/search" method="GET">
-    <input
-      class="form-control me-2 search-inp"
-      type="search"
-      name="location"
-      placeholder="Search destinations"
-      value="<%= filters.location ? filters.location : '' %>"
-      aria-label="Search"
-    />
-    <button class="btn search-btn" type="submit">
-      <i class="fa-solid fa-magnifying-glass"></i> Search
-    </button>
-  </form>
-</div>
-
+      <div class="navbar-nav ms-auto">
+        <form
+          class="d-flex"
+          role="search"
+          action="/listings/search"
+          method="GET"
+        >
+          <input
+            class="form-control me-2 search-inp"
+            type="search"
+            name="location"
+            placeholder="Search destinations"
+            value="<%= filters.location ? filters.location : '' %>"
+            aria-label="Search"
+          />
+          <button class="btn search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i> Search
+          </button>
+        </form>
+      </div>
 
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/listings/new">Airbnb your home</a>
